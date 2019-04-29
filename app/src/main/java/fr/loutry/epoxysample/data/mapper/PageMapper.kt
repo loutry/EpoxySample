@@ -1,5 +1,6 @@
 package fr.loutry.epoxysample.data.mapper
 
+import android.graphics.Color
 import fr.loutry.epoxysample.data.model.DirtyInfo
 import fr.loutry.epoxysample.data.model.DirtyPage
 import fr.loutry.epoxysample.data.model.Strate
@@ -37,7 +38,7 @@ internal object PageMapper {
             id = contentID,
             title = title ?: "",
             subtitle = subtitle ?: "",
-            imageUrl = URLImage ?: ""
+            color =  Color.parseColor(color)
         )
     }
 }

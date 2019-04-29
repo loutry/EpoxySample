@@ -13,5 +13,6 @@ data class StrateItem(
     val contentID: String,
     val title: String?,
     val subtitle: String?,
-    val URLImage: String?
+    val URLImage: String?,
+    val color: String?
 )
