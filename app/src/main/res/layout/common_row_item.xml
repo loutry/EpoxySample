@@ -4,12 +4,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         tools:layout_height="wrap_content"
-        tools:layout_width="wrap_content"
+        tools:layout_width="match_parent"
         tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <View
             android:id="@+id/common_row_item_poster"
-            android:layout_width="@dimen/common_program_view_width"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/poster_background"
             app:layout_constraintDimensionRatio="H,16:9"
