@@ -7,6 +7,4 @@
     <dimen name="four_units">32dp</dimen>
 
     <dimen name="default_page_margin">16dp</dimen>
-
-    <dimen name="common_program_view_width">160dp</dimen>
 </resources>

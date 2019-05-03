@@ -14,7 +14,7 @@ import fr.loutry.epoxysample.R
  * Custom view to display a strate program.
  */
 @ModelView(
-    autoLayout = ModelView.Size.WRAP_WIDTH_WRAP_HEIGHT,
+    autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
     fullSpan = false
 )
 class ProgramView @JvmOverloads constructor(
@@ -30,7 +30,7 @@ class ProgramView @JvmOverloads constructor(
     init {
         View.inflate(context, R.layout.common_row_item, this)
         layoutParams = LayoutParams(
-            LayoutParams.WRAP_CONTENT,
+            LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
 

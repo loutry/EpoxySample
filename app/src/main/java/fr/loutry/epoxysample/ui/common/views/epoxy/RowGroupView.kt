@@ -5,12 +5,12 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.epoxy.EpoxyRecyclerView
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
 import fr.loutry.epoxysample.R
+import fr.loutry.epoxysample.ui.common.RowLayoutManager
 import fr.loutry.epoxysample.ui.common.models.ContentItemUiModel
 
 @ModelView(
@@ -36,7 +36,7 @@ class RowGroupView @JvmOverloads constructor(
 
         title = findViewById(R.id.common_row_title)
         recycler = findViewById(R.id.common_row_content)
-        recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recycler.layoutManager = ShowcaseLayoutManager(context)
     }
 
     @TextProp
@@ -54,5 +54,15 @@ class RowGroupView @JvmOverloads constructor(
                 .posterColor(item.posterColor)
         }
         recycler.setModels(contentModels)
+    }
+
+    class ShowcaseLayoutManager(context: Context?) : RowLayoutManager(context) {
+        override fun getBreakpointsArrayRes(): Int {
+            return R.array.content_row_16x9
+        }
+
+        override fun getItemPaddingRes(): Int {
+            return R.dimen.one_unit
+        }
     }
 }
