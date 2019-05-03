@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.airbnb.epoxy.EpoxyRecyclerView
 import fr.loutry.epoxysample.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ShowcaseFragment : Fragment() {
 
     private val viewModel: ShowcaseViewModel by viewModel()
+    private val controller = ShowcaseController()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,8 +26,11 @@ class ShowcaseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val recyclerView: EpoxyRecyclerView = view.findViewById(R.id.showcase_recycler_view)
+        recyclerView.setController(controller)
+
         viewModel.uiState.observe(this, Observer { pageUiModel ->
-            // TODO
+            controller.setData(pageUiModel.content)
         })
     }
 
