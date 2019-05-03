@@ -11,7 +11,6 @@ import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
 import fr.loutry.epoxysample.R
 import fr.loutry.epoxysample.ui.common.RowLayoutManager
-import fr.loutry.epoxysample.ui.common.models.ContentItemUiModel
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
@@ -46,15 +45,8 @@ class RowGroupView @JvmOverloads constructor(
     }
 
     @ModelProp
-    fun setContents(contents: List<ContentItemUiModel>) {
-        val contentModels = contents.map { item ->
-            ProgramViewModel_()
-                .id(item.id)
-                .title(item.title)
-                .subtitle(item.subtitle)
-                .posterColor(item.posterColor)
-        }
-        recycler.setModels(contentModels)
+    fun setContents(contents: List<ProgramViewModel_>) {
+        recycler.setModels(contents)
     }
 
     class ShowcaseLayoutManager(context: Context?) : RowLayoutManager(context) {
