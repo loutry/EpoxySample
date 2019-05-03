@@ -2,6 +2,7 @@ package fr.loutry.epoxysample.ui.showcase
 
 import com.airbnb.epoxy.TypedEpoxyController
 import fr.loutry.epoxysample.ui.common.models.RowUiModel
+import fr.loutry.epoxysample.ui.common.views.epoxy.ProgramViewModel_
 import fr.loutry.epoxysample.ui.common.views.epoxy.RowGroupViewModel_
 
 class ShowcaseController : TypedEpoxyController<List<RowUiModel>>() {
@@ -17,6 +18,12 @@ class ShowcaseController : TypedEpoxyController<List<RowUiModel>>() {
         return RowGroupViewModel_()
             .id(data.id)
             .title(data.label)
-            .contents(data.contents)
+            .contents(data.contents.map { item ->
+                ProgramViewModel_()
+                    .id(item.id)
+                    .title(item.title)
+                    .subtitle(item.subtitle)
+                    .posterColor(item.posterColor)
+            })
     }
 }
