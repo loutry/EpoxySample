@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:layout_height="wrap_content"
+        tools:layout_width="wrap_content"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+            android:id="@+id/common_row_item_poster"
+            android:layout_width="@dimen/common_program_view_width"
+            android:layout_height="0dp"
+            android:background="@color/poster_background"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"/>
+
+
+    <TextView
+            android:id="@+id/common_row_item_title_bounds"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/common_row_item_poster"
+            tools:text="Title"/>
+
+    <TextView
+            android:id="@+id/common_row_item_subtitle_bounds"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:paddingBottom="@dimen/one_unit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/common_row_item_title_bounds"
+            tools:text="Subtitle"/>
+
+    <TextView
+            android:id="@+id/common_row_item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingTop="@dimen/half_unit_for_text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/common_row_item_poster"
+            tools:text="Les gardiens de la galaxie Vol. 2"/>
+
+    <TextView
+            android:id="@+id/common_row_item_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/common_row_item_title"
+            tools:text="Film Science-fiction"/>
+</merge>

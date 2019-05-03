@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="half_unit_for_text">4dp</dimen>
+    <dimen name="one_unit">8dp</dimen>
+    <dimen name="one_unit_and_half">12dp</dimen>
+    <dimen name="two_units">16dp</dimen>
+    <dimen name="four_units">32dp</dimen>
+
+    <dimen name="common_program_view_width">160dp</dimen>
+</resources>
