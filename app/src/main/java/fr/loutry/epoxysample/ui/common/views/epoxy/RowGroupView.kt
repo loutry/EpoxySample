@@ -15,7 +15,8 @@ import fr.loutry.epoxysample.ui.common.models.ContentItemUiModel
 
 @ModelView(
     autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
-    fullSpan = false
+    fullSpan = false,
+    saveViewState = true
 )
 class RowGroupView @JvmOverloads constructor(
     context: Context,

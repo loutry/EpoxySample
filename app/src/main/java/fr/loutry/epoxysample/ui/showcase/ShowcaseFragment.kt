@@ -34,6 +34,16 @@ class ShowcaseFragment : Fragment() {
         })
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        controller.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        controller.onRestoreInstanceState(savedInstanceState)
+    }
+
     companion object {
 
         @JvmStatic
