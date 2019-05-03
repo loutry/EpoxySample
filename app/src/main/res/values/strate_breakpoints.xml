@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Strate content's surface behavior -->
+    <!-- When a screen size changes, the UI adapts using a fluid surface-specific behaviors, -->
+    <!-- where element width grows as screen size changes. -->
+    <!-- The number of elements display inside a strate are defined according to those breakpoints:  -->
+    <!-- https://gitlab.canalplus.pro/dedandroid/dedmycanalandroid/uploads/fc955aafe1337b4487531ff17bfcc370/Breakpoint.png -->
+    <!-- -->
+    <!-- -->
+    <!-- Breakpoints array must be ordered ASC and is to read as such: -->
+    <!-- -->
+    <!--<array name="breakpoints_array_example_1">-->
+    <!--<item>0dp</item>-->   <!-- from   0dp to  480dp display one column -->
+    <!--<item>480dp</item>--> <!-- from 480dp to  600dp display two columns -->
+    <!--<item>600dp</item>--> <!-- from 600dp to  840dp display three columns -->
+    <!--<item>840dp</item>--> <!-- from 840dp and above display four columns -->
+    <!--</array>-->
+    <!-- -->
+    <!-- Breakpoints array example to start displaying three columns. -->
+    <!--<array name="breakpoints_array_example_2">-->
+    <!--<item>0dp</item>-->   <!-- from   0dp to    0dp display one column -->
+    <!--<item>0dp</item>-->   <!-- from   0dp to    0dp display two columns -->
+    <!--<item>0dp</item>-->   <!-- from   0dp to  600dp display three columns -->
+    <!--<item>600dp</item>--> <!-- from 600dp to  960dp display four columns -->
+    <!--<item>960dp</item>--> <!-- from 960dp and above display five columns -->
+    <!--</array>-->
+
+    <array name="content_row_3x4">
+        <item>0dp</item>
+        <item>0dp</item>
+        <item>0dp</item>
+        <item>600dp</item>
+        <item>960dp</item>
+        <item>960dp</item>
+        <item>1440dp</item>
+    </array>
+
+    <array name="content_row_4x3">
+        <item>0dp</item>
+        <item>0dp</item>
+        <item>600dp</item>
+        <item>960dp</item>
+        <item>1440dp</item>
+    </array>
+
+    <array name="content_row_16x6">
+        <item>0dp</item>
+        <item>600dp</item>
+        <item>960dp</item>
+        <item>1440dp</item>
+    </array>
+
+    <array name="content_row_16x9">
+        <item>0dp</item>
+        <item>0dp</item>
+        <item>600dp</item>
+        <item>960dp</item>
+        <item>1440dp</item>
+    </array>
+
+</resources>
