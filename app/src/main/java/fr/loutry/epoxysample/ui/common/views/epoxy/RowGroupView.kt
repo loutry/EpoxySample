@@ -1,6 +1,7 @@
 package fr.loutry.epoxysample.ui.common.views.epoxy
 
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
@@ -9,6 +10,7 @@ import com.airbnb.epoxy.EpoxyRecyclerView
 import com.airbnb.epoxy.ModelProp
 import com.airbnb.epoxy.ModelView
 import com.airbnb.epoxy.TextProp
+import com.airbnb.epoxy.TypedEpoxyController
 import fr.loutry.epoxysample.R
 import fr.loutry.epoxysample.ui.common.RowLayoutManager
 import fr.loutry.epoxysample.ui.common.models.ContentItemUiModel
@@ -25,7 +27,7 @@ class RowGroupView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val title: TextView
-    private val recycler: EpoxyRecyclerView
+    private val controller = RowGroupController()
 
     init {
         View.inflate(context, R.layout.common_row_group, this)
@@ -36,8 +38,18 @@ class RowGroupView @JvmOverloads constructor(
         orientation = VERTICAL
 
         title = findViewById(R.id.common_row_title)
-        recycler = findViewById(R.id.common_row_content)
+        val recycler = findViewById<EpoxyRecyclerView>(R.id.common_row_content)
         recycler.layoutManager = ShowcaseLayoutManager(context)
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        controller.onSaveInstanceState()
+        return super.onSaveInstanceState()
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        controller.onRestoreInstanceState(state)
+        super.onRestoreInstanceState(state)
     }
 
     @TextProp
@@ -47,14 +59,7 @@ class RowGroupView @JvmOverloads constructor(
 
     @ModelProp
     fun setContents(contents: List<ContentItemUiModel>) {
-        val models = contents.map { item ->
-            ProgramViewModel_()
-                .id(item.id)
-                .title(item.title)
-                .subtitle(item.subtitle)
-                .posterColor(item.posterColor)
-        }
-        recycler.setModels(models)
+        controller.setData(contents)
     }
 
     class ShowcaseLayoutManager(context: Context?) : RowLayoutManager(context) {
@@ -64,6 +69,20 @@ class RowGroupView @JvmOverloads constructor(
 
         override fun getItemPaddingRes(): Int {
             return R.dimen.one_unit
+        }
+    }
+}
+
+class RowGroupController : TypedEpoxyController<List<ContentItemUiModel>>() {
+
+    override fun buildModels(data: List<ContentItemUiModel>) {
+        data.forEach { item ->
+            val model = ProgramViewModel_()
+                .id(item.id)
+                .title(item.title)
+                .subtitle(item.subtitle)
+                .posterColor(item.posterColor)
+            add(model)
         }
     }
 }
