@@ -1,5 +1,6 @@
 include ':epoxy-adapter'
 include ':epoxy-sample'
+include ':app'
 include ':epoxy-processor'
 include ':epoxy-annotations'
 include ':epoxy-processortest'
