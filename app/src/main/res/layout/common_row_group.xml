@@ -19,7 +19,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             tools:text="A voir aussi"/>
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
+    <fr.loutry.epoxysample.ui.common.views.epoxy.MyEpoxyRecyclerView
             android:id="@+id/common_row_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
