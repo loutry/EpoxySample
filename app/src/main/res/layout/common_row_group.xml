@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:layout_height="wrap_content"
-        tools:layout_width="match_parent"
-        tools:orientation="vertical"
-        tools:parentTag="android.widget.LinearLayout">
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-            android:id="@+id/common_row_title"
+    <ViewStub
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start|bottom"
-            android:paddingBottom="@dimen/one_unit_and_half"
-            android:paddingLeft="@dimen/default_page_margin"
-            android:paddingRight="@dimen/default_page_margin"
-            android:paddingTop="@dimen/two_units"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            tools:text="A voir aussi"/>
+            android:inflatedId="@+id/common_row_title" />
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/common_row_content"
+    <ViewStub
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:paddingLeft="@dimen/default_page_margin"
-            android:paddingRight="@dimen/default_page_margin"
-            android:scrollbars="none"
-            tools:listitem="@layout/common_row_item"
-            tools:orientation="horizontal"/>
+            android:inflatedId="@+id/common_row_content" />
 
-</merge>
+</LinearLayout>

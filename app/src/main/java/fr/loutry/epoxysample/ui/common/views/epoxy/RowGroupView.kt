@@ -1,69 +1,47 @@
 package fr.loutry.epoxysample.ui.common.views.epoxy
 
-import android.content.Context
-import android.util.AttributeSet
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
-import com.airbnb.epoxy.EpoxyRecyclerView
-import com.airbnb.epoxy.ModelProp
-import com.airbnb.epoxy.ModelView
-import com.airbnb.epoxy.TextProp
+import com.airbnb.epoxy.CarouselModel_
+import com.airbnb.epoxy.EpoxyModel
+import com.airbnb.epoxy.EpoxyModelGroup
 import fr.loutry.epoxysample.R
-import fr.loutry.epoxysample.ui.common.RowLayoutManager
-import fr.loutry.epoxysample.ui.common.models.ContentItemUiModel
+import fr.loutry.epoxysample.ui.common.models.RowUiModel
 
-@ModelView(
-    autoLayout = ModelView.Size.MATCH_WIDTH_WRAP_HEIGHT,
-    fullSpan = false,
-    saveViewState = true
-)
-class RowGroupView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr) {
-
-    private val title: TextView
-    private val recycler: EpoxyRecyclerView
+class RowGroupView(data: RowUiModel) :
+    EpoxyModelGroup(R.layout.common_row_group, buildModels(data)) {
 
     init {
-        View.inflate(context, R.layout.common_row_group, this)
-        layoutParams = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
-        )
-        orientation = VERTICAL
-
-        title = findViewById(R.id.common_row_title)
-        recycler = findViewById(R.id.common_row_content)
-        recycler.layoutManager = ShowcaseLayoutManager(context)
+        id(data.id)
     }
 
-    @TextProp
-    fun setTitle(text: CharSequence) {
-        title.text = text
+    override fun getSpanSize(totalSpanCount: Int, position: Int, itemCount: Int): Int {
+        return totalSpanCount
     }
 
-    @ModelProp
-    fun setContents(contents: List<ContentItemUiModel>) {
-        val models = contents.map { item ->
-            ProgramViewModel_()
-                .id(item.id)
-                .title(item.title)
-                .subtitle(item.subtitle)
-                .posterColor(item.posterColor)
-        }
-        recycler.setModels(models)
-    }
+    companion object {
+        private fun buildModels(data: RowUiModel): List<EpoxyModel<*>> {
+            val models = ArrayList<EpoxyModel<*>>()
 
-    class ShowcaseLayoutManager(context: Context?) : RowLayoutManager(context) {
-        override fun getBreakpointsArrayRes(): Int {
-            return R.array.content_row_16x9
-        }
+            models.add(RowTitleModel_()
+                .id("row group title")
+                .label(data.label)
+            )
 
-        override fun getItemPaddingRes(): Int {
-            return R.dimen.one_unit
+            val programModels = data.contents.map { item ->
+                ProgramViewModel_()
+                    .id(item.id)
+                    .title(item.title)
+                    .subtitle(item.subtitle)
+                    .posterColor(item.posterColor)
+            }
+
+            models.add(
+                CarouselModel_()
+                    .id("row group contents")
+                    .numViewsToShowOnScreen(3f)
+                    .models(programModels)
+            )
+
+            return models
         }
     }
 }
