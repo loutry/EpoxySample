@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/common_row_title_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|bottom"
+        android:paddingBottom="@dimen/one_unit_and_half"
+        android:paddingLeft="@dimen/default_page_margin"
+        android:paddingRight="@dimen/default_page_margin"
+        android:paddingTop="@dimen/two_units"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:text="A voir aussi"/>
