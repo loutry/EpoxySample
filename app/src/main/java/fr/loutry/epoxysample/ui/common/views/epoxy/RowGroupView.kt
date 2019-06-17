@@ -4,9 +4,9 @@ import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.EpoxyModelGroup
 import fr.loutry.epoxysample.R
-import fr.loutry.epoxysample.ui.common.models.RowUiModel
+import fr.loutry.epoxysample.ui.common.models.RowGroupUiModel
 
-class RowGroupView(data: RowUiModel) :
+class RowGroupView(data: RowGroupUiModel) :
     EpoxyModelGroup(R.layout.common_row_group, buildModels(data)) {
 
     init {
@@ -18,7 +18,7 @@ class RowGroupView(data: RowUiModel) :
     }
 
     companion object {
-        private fun buildModels(data: RowUiModel): List<EpoxyModel<*>> {
+        private fun buildModels(data: RowGroupUiModel): List<EpoxyModel<*>> {
             val models = ArrayList<EpoxyModel<*>>()
 
             models.add(RowTitleModel_()

@@ -2,16 +2,16 @@ package fr.loutry.epoxysample.ui.common.mappers
 
 import fr.loutry.epoxysample.domain.model.showcase.Row
 import fr.loutry.epoxysample.ui.common.models.ContentItemUiModel
-import fr.loutry.epoxysample.ui.common.models.RowUiModel
+import fr.loutry.epoxysample.ui.common.models.RowGroupUiModel
 
 object RowListUiMapper {
 
-    operator fun invoke(domain: List<Row>): List<RowUiModel> {
-        return domain.map { mapRow(it) }
+    operator fun invoke(domain: List<Row>): List<RowGroupUiModel> {
+        return domain.map { mapGroup(it) }
     }
 
-    private fun mapRow(domain: Row): RowUiModel {
-        return RowUiModel(
+    private fun mapGroup(domain: Row): RowGroupUiModel {
+        return RowGroupUiModel(
             id = "row " + domain.title,
             label = domain.title,
             contents = domain.contents.map { item -> mapItem(item, domain.title) }
